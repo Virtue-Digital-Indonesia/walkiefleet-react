@@ -18,7 +18,7 @@ export const getDeviceID = () => {
 }
 
 export const base64ToUint8Array = (base64string) => {
-  let arrayBuffer = Uint8Array.from(atob(base64string), function (c) {
+  let arrayBuffer = Uint8Array.from(atob(base64string), (c) => {
     return c.charCodeAt(0)
   })
   return arrayBuffer

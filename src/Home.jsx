@@ -49,9 +49,9 @@ const Home = () => {
       // SHOULD BE WS
       wsRef.current = new WebSocket('ws://' + sessionStorage.getItem('serverAddress'))
 
-      wsRef.current.onopen = function () {}
+      wsRef.current.onopen = () => {}
 
-      wsRef.current.onmessage = function (evt) {
+      wsRef.current.onmessage = (evt) => {
         let messages = JSON.parse(evt.data)
         for (let i = 0; i < messages.length; i++) {
           let msg = messages[i]
@@ -231,11 +231,11 @@ const Home = () => {
         soundBufferRef.current.addChunk(audioFrame)
       }
 
-      wsRef.current.onerror = function (evt) {
+      wsRef.current.onerror = (evt) => {
         console.log('Socket error: ' + JSON.stringify(evt, null, 4))
       }
 
-      wsRef.current.onclose = function (evt) {
+      wsRef.current.onclose = (evt) => {
         console.log('Socket closed. Code: ' + evt.code)
       }
     } else {
@@ -324,7 +324,7 @@ const Home = () => {
     if (navigator.getUserMedia) {
       navigator.getUserMedia(
         { audio: true },
-        function (stream) {
+        (stream) => {
           microphoneStreamRef.current = audioContextRef.current.createMediaStreamSource(stream)
           let chunkSize = 2048
           audioProcessorNodeRef.current = audioContextRef.current.createScriptProcessor(
@@ -332,7 +332,7 @@ const Home = () => {
             1,
             1
           )
-          audioProcessorNodeRef.current.onaudioprocess = function (data) {
+          audioProcessorNodeRef.current.onaudioprocess = (data) => {
             let leftChannel = data.inputBuffer.getChannelData(0)
             let index = 0
             while (index < chunkSize) {
