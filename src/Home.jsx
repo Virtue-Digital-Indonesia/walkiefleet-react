@@ -25,9 +25,6 @@ const Home = () => {
   // is receive (you on receive output voice)
   const isReceiveRef = useRef(false)
   
-
-  const [title, setTitle] = useState("Connecting...");
-
   // is On Call
   const [isOnCall, setIsOnCall] = useState(false)
   // selectedObjectId = ID
@@ -420,9 +417,6 @@ const Home = () => {
 
   return (
     <div className="App">
-      {/* TITLE */}
-      <h2>{title}</h2>
-
       {/* GROUPS */}
       <div className="section">GROUPS</div>
 
