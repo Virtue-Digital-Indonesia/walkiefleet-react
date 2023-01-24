@@ -1,18 +1,18 @@
-import { Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import SignIn from './SignIn';
+import React, { Suspense } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Home from './Home'
+import SignIn from './SignIn'
 
 const routes = [
   {
-    path: "/",
+    path: '/',
     element: <SignIn />
   },
   {
-    path: "/home",
+    path: '/home',
     element: <Home />
   }
-];
+]
 
 export default function App() {
   return (
@@ -23,5 +23,5 @@ export default function App() {
         ))}
       </Routes>
     </Suspense>
-  );
+  )
 }

@@ -1,33 +1,33 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SignIn = () => {
   const initialFormObject = {
-    login: "",
-    password: "",
-    serverAddress: ""
-  };
+    login: '',
+    password: '',
+    serverAddress: ''
+  }
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const [formObject, setFormObject] = useState(initialFormObject);
+  const [formObject, setFormObject] = useState(initialFormObject)
 
   const handleFormObjectChange = (event) => {
     setFormObject((current) => {
       return {
         ...current,
         [event.target.name]: event.target.value
-      };
-    });
-  };
+      }
+    })
+  }
 
   const handleFormButtonClick = () => {
-    sessionStorage.setItem("login", formObject.login);
-    sessionStorage.setItem("password", formObject.password);
-    sessionStorage.setItem("serverAddress", formObject.serverAddress);
+    sessionStorage.setItem('login', formObject.login)
+    sessionStorage.setItem('password', formObject.password)
+    sessionStorage.setItem('serverAddress', formObject.serverAddress)
 
-    navigate("/home");
-  };
+    navigate('/home')
+  }
 
   return (
     <form method="post" onSubmit={handleFormButtonClick}>
@@ -68,7 +68,7 @@ const SignIn = () => {
         </button>
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default SignIn;
+export default SignIn
